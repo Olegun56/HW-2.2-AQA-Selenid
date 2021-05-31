@@ -49,7 +49,7 @@ public class CardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         $(withText("Успешно!")).shouldBe(Condition.visible, Duration.ofSeconds(20));
-        $("[data-test-id=notification] .notification__content").shouldHave(Condition.exactText("Встреча успешно забронирована на " + localDate(4)));
+        $("[data-test-id=notification] .notification__content").shouldHave(Condition.exactText("Встреча успешно забронирована н " + localDate(4)));
 
 
     }
@@ -65,7 +65,7 @@ public class CardDeliveryTest {
         $(".button__text").click();
         //$("[data-test-id=city] .input__sub").shouldHave(Condition.exactText("Доставка в выбранный город недоступна"));
         String text = $(".input_invalid > span > .input__sub").getText();
-        assertEquals("Доставка в выбранный город недоступна", text);
+        assertEquals("Доставка в выбранный город недоступн", text);
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CardDeliveryTest {
         $(".button__text").click();
         //  $("[data-test-id=name] .input__sub").shouldHave(Condition.exactText("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы."));
         String text = $(".input_invalid > span > .input__sub").getText();
-        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", text);
+        assertEquals("Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефис.", text);
 
     }
 
@@ -93,7 +93,7 @@ public class CardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         String text = $(".input_invalid").getText();
-        assertEquals("Заказ на выбранную дату невозможен", text);
+        assertEquals("Заказ на выбранную дату невозможе", text);
 
 
     }
@@ -107,7 +107,7 @@ public class CardDeliveryTest {
         $("[data-test-id=phone] input").setValue("+79012345678");
         $(".button__text").click();
         String text = $(".checkbox__text").getCssValue("color");
-        assertEquals("rgba(255, 92, 92, 1)", text);
+        assertEquals("rgba(255, 92, 92, )", text);
 
 
     }
@@ -122,6 +122,6 @@ public class CardDeliveryTest {
         $("[data-test-id=agreement]").click();
         $(".button__text").click();
         String text = $(".input_invalid > span > .input__sub").getText();
-        assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", text);
+        assertEquals("Телефон указан неверно. Должно быть 11 цифр, например, +7901234567.", text);
     }
 }
